@@ -10,37 +10,25 @@
 - **Units:** MW
 - **Resolution:** 10-minute
 - **Availability:** 
-  - Real-time via SQS queue consumption
+  - Real-time
   - Historical data only available as 24-hour averages on website
-  - Data collected via separate fetcher script and archived to: https://github.com/intermittentnrg/intermittent-taipower-sns-sqs
+  - Archived historical data available: https://github.com/intermittentnrg/intermittent-taipower-sns-sqs
 
 ## Data Collection
 
-**Data Flow:**
-1. Fetcher retrieves JSON snapshots from Taipower API
-2. Publishes to AWS SNS topic
-3. SQS queue receives messages
-4. This importer consumes from SQS (configured via `TAIPOWER_QUEUE_URL` env var)
+### JSON Example
 
-## Production Type Mapping
-
-| Taipower Code | Production Type | Notes |
-|--------------|----------------|-------|
-| NUCLEAR | nuclear | |
-| COAL | fossil_coal | |
-| COGEN | cogeneration | |
-| IPPCOAL | fossil_coal | Independent Power Producer coal |
-| LNG | fossil_gas | |
-| IPPLNG | fossil_gas | Independent Power Producer LNG |
-| OIL | fossil_oil | |
-| DIESEL | fossil_oil_diesel | |
-| HYDRO | hydro | |
-| WIND | wind_onshore / wind_offshore | Detected via unit name |
-| SOLAR | solar | |
-| PUMPINGGEN | hydro_pumped_storage | |
-| OTHERRENEWABLEENERGY | other_renewable | |
-| ENERGYSTORAGESYSTEM | hydro_pumped_storage / battery | Detected via unit name |
-| ENERGYSTORAGESYSTEMLOAD | storage | |
+```json
+{
+  "": "2025-12-14 00:00",
+  "dataset": [
+    [["<A NAME='coal'></A><b>COAL</b>", "", "Linkou#1", "800.0", "756.1", "94.512%", " ", ""]],
+    [["<A NAME='coal'></A><b>COAL</b>", "", "Subtotal", "10600.0(18.458%)", "4659.0(19.512%)", "", "", ""]],
+    [["<A NAME='wind'></A><b>WIND</b>", "", "Subtotal", "762.4", "423.5", "", "", ""]],
+    [["<A NAME='solar'></A><b>SOLAR</b>", "", "Subtotal", "0.0", "0.0", "", "", ""]]
+  ]
+}
+```
 
 ## Unit-Level Classification
 

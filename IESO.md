@@ -67,17 +67,15 @@
 **Quick Facts:**
 - **URL:** `https://reports-public.ieso.ca/public/IntertieScheduleFlowYear/PUB_IntertieScheduleFlowYear_%Y.csv`
 
-## Production Type Mapping
+## Fuel Types
 
-| IESO Code | Production Type |
-|-----------|----------------|
-| NUCLEAR | nuclear |
-| GAS | fossil_gas |
-| HYDRO | hydro |
-| WIND | wind_onshore |
-| SOLAR | solar |
-| BIOFUEL | biomass |
-| OTHER | other |
+- NUCLEAR: Nuclear
+- GAS: Gas
+- HYDRO: Hydro
+- WIND: Wind
+- SOLAR: Solar
+- BIOFUEL: Biofuel
+- OTHER: Other
 
 ## Notes
 - Hours are 1-indexed (1-24), converted to 0-23

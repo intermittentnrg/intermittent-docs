@@ -39,6 +39,13 @@ These offsets are used by all importers to parse the data:
 | Most regions | 54 | 55 | 343 | 288 intervals (24h × 12) |
 | Kansai | 57 | 58 | 346 | Different row indices |
 
+### CSV Example
+
+```
+DATE,TIME,実績(万kW),予測値(万kW),使用率(%),再生可能(万kW)
+2026/2/24,0:00,292,280,91,319
+```
+
 **Column Mapping:**
 | Index | Field | Description |
 |-------|-------|-------------|

@@ -28,28 +28,6 @@
 **Quick Facts:**
 - **URL:** `https://data.opennem.org.au/v3/clients/em/latest.json`
 
-## Production Type Mapping
-
-| OpenNEM Code | Production Type |
-|--------------|----------------|
-| coal_black | fossil_hard_coal |
-| coal_brown | fossil_brown_coal/lignite |
-| gas_ccgt | fossil_gas_ccgt |
-| gas_ocgt | fossil_gas_ocgt |
-| gas_recip | fossil_gas_reciprocating |
-| gas_steam | fossil_gas_steam |
-| gas_wcmg | fossil_gas_coal_mine_waste |
-| distillate | fossil_oil_distillate |
-| hydro | hydro |
-| wind | wind |
-| bioenergy_biogas | biogas |
-| bioenergy_biomass | biomass |
-| solar_utility | solar_utility |
-| solar_rooftop | solar_rooftop |
-| battery_charging | battery_charging |
-| battery_discharging | battery |
-| pumps | hydro_pumped_storage |
-
 ## Notes
 - Replaced by AEMO NEM for Eastern Australia and AEMO WEM for Western Australia
 

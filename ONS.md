@@ -10,8 +10,7 @@
 - **Units:** MW
 - **Resolution:** 1-minute
 - **Availability:** 
-  - Real-time data via AWS SQS queue consumption
-  - Configured via `ONS_QUEUE_URL` env var (region: sa-east-1)
+  - Real-time data
 
 ## Regions
 
@@ -21,18 +20,6 @@
 | BR-N | North | norte |
 | BR-CS | Southeast/Central-West | sudesteECentroOeste |
 | BR-S | South | sul |
-
-## Production Type Mapping
-
-| JSON Key | Production Type | Notes |
-|----------|----------------|-------|
-| hidraulica | hydro | Includes Itaipu contributions |
-| itaipu50HzBrasil | - | Added to hydro |
-| itaipu60Hz | - | Added to hydro |
-| termica | other | Thermal generation |
-| eolica | wind | Wind |
-| nuclear | nuclear | Nuclear |
-| solar | solar | Solar |
 
 ## Transmission / Interchange
 

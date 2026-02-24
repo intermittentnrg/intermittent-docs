@@ -16,7 +16,6 @@
 **Notes:**
 - Data is from the front page of ENEC website (Barakah Nuclear Power Plant)
 - Instant snapshot only - no historical data available
-- Data collected via SQS queue (configured via `ENEC_QUEUE_URL` env var)
 
 ## Nuclear Units
 
@@ -26,12 +25,6 @@
 | Unit 2 | BARAKAH-2 | |
 | Unit 3 | BARAKAH-3 | |
 | Unit 4 | BARAKAH-4 | |
-
-## Production Type Mapping
-
-| Source | Production Type |
-|--------|----------------|
-| Global (all units) | nuclear |
 
 ## Data Extraction
 

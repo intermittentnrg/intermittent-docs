@@ -19,34 +19,29 @@
 - **Documentation:** https://www.ercot.com/api-docs/
 - **Notes:** Geoblocked (US-only). Alternative data sources exist.
 
-## Production Type Mapping
+## Data Structure
 
-| ERCOT Code | Production Type |
-|-----------|----------------|
-| Coal and Lignite | fossil_coal |
-| Hydro | hydro |
-| Nuclear | nuclear |
-| Other | other |
-| Power Storage | storage |
-| Solar | solar |
-| Wind | wind |
-| Natural Gas | fossil_gas |
-
-## Notes
-- Time format: `%Y-%m-%d %H:%M:%S`
-- Data structure:
 ```json
 {
   "data": {
     "2024-01-15": {
       "2024-01-15 14:00:00": {
         "Natural Gas": {"gen": 12345.6},
-        "Wind": {"gen": 5000.0}
+        "Wind": {"gen": 5000.0},
+        "Coal and Lignite": {"gen": ...},
+        "Hydro": {"gen": ...},
+        "Nuclear": {"gen": ...},
+        "Other": {"gen": ...},
+        "Power Storage": {"gen": ...},
+        "Solar": {"gen": ...}
       }
     }
   }
 }
 ```
+
+## Notes
+- Time format: `%Y-%m-%d %H:%M:%S`
 
 ## Links
 - [intermittent.energy](https://github.com/intermittentnrg/intermittent-importer/blob/master/lib/ercot.rb)

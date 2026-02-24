@@ -9,7 +9,7 @@
 - **Data Format:** JSON
 - **Units:** MW (load, generation, interchange)
 - **Resolution:** Hourly
-- **Availability:** 
+- **Availability:**
   - Historical data available
   - Max 5000 rows per request (use pagination with `offset`)
   - Requires API key
@@ -19,7 +19,8 @@
 ### Load (Region Data)
 **Quick Facts:**
 - **URL:** `https://api.eia.gov/v2/electricity/rto/region-data/data/`
-- **Parameters:** 
+- **Data Portal:** https://www.eia.gov/opendata/browser/electricity/rto/region-data
+- **Parameters:**
   - `frequency`: hourly
   - `start`/`end`: YYYY-MM-DD
   - `facets[type][]`: D (demand)
@@ -30,7 +31,8 @@
 ### Generation (Fuel Type Data)
 **Quick Facts:**
 - **URL:** `https://api.eia.gov/v2/electricity/rto/fuel-type-data/data/`
-- **Parameters:** 
+- **Data Portal:** https://www.eia.gov/opendata/browser/electricity/rto/fuel-type-data
+- **Parameters:**
   - `frequency`: hourly
   - `facets[fueltype][]`: fuel type code
   - `facets[respondent][]`: balancing authority code
@@ -39,7 +41,8 @@
 ### Interchange (Transmission)
 **Quick Facts:**
 - **URL:** `https://api.eia.gov/v2/electricity/rto/interchange-data/data/`
-- **Parameters:** 
+- **Data Portal:** https://www.eia.gov/opendata/browser/electricity/rto/interchange-data
+- **Parameters:**
   - `frequency`: hourly
   - `facets[fromba][]`: from balancing authority
   - `facets[toba][]`: to balancing authority
@@ -48,29 +51,26 @@
 ## Authentication
 
 API key required:
-- Environment variable: `EIA_TOKEN`
 - Obtain API key from https://www.eia.gov/opendata/register/
 
-## Production Type Mapping
+## Fuel Type Codes
 
-| EIA Code | Production Type |
-|----------|----------------|
-| BAT | battery |
-| COL | fossil_hard_coal |
-| GEO | geothermal |
-| NG | fossil_gas |
-| NUC | nuclear |
-| OIL | fossil_oil |
-| OES | storage |
-| OTH | other |
-| PS | hydro_pumped_storage |
-| SNB | solar_with_battery |
-| SUN | solar |
-| UES | unknown_storage |
-| WAT | hydro |
-| WND | wind |
-| WNB | wind_with_battery |
-| UNK | unknown |
+- BAT: Battery
+- COL: Coal
+- GEO: Geothermal
+- NG: Natural gas
+- NUC: Nuclear
+- OIL: Oil
+- OES: Energy storage
+- OTH: Other
+- PS: Pumped storage
+- SNB: Solar with battery
+- SUN: Solar
+- UES: Unknown storage
+- WAT: Water (hydro)
+- WND: Wind
+- WNB: Wind with battery
+- UNK: Unknown
 
 ## Notes
 

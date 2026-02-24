@@ -20,24 +20,20 @@
 - **Date in URL:** `%Y%m%d` format (e.g., 20240115)
 - **Time in CSV:** `%H:%M` format combined with date from URL
 - **Notes:** Daily CSV with hourly generation by fuel type; generation data includes imports as transmission flows
-
-**Production Type Mapping:**
-
-| Column | Production Type |
-|--------|----------------|
-| Solar | solar |
-| Wind | wind_onshore |
-| Geothermal | geothermal |
-| Biomass | biomass |
-| Biogas | biogas |
-| Small hydro | hydro_small |
-| Coal | fossil_hard_coal |
-| Nuclear | nuclear |
-| Natural Gas | fossil_gas |
-| Large Hydro | hydro_large |
-| Batteries | battery |
-| Imports | import (mapped to transmission) |
-| Other | other |
+- **Columns:**
+  - Solar
+  - Wind
+  - Geothermal
+  - Biomass
+  - Biogas
+  - Small hydro
+  - Coal
+  - Nuclear
+  - Natural Gas
+  - Large Hydro
+  - Batteries
+  - Imports
+  - Other
 
 ### Load Data
 **Quick Facts:**

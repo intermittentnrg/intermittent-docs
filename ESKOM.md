@@ -24,18 +24,24 @@
 **Quick Facts:**
 - **URL:** `https://www.eskom.co.za/dataportal/wp-content/uploads/%Y/%m/Station_Build_Up.csv`
 - **Notes:** Hourly generation by production type
+- **Columns:**
+  - Thermal_Gen_Excl_Pumping_and_SCO
+  - Nuclear_Generation
+  - Eskom_Gas_Generation
+  - Eskom_OCGT_Generation
+  - Dispatchable_IPP_OCGT
+  - Hydro_Water_Generation
+  - Pumped_Water_Generation
+  - Pumped_Water_SCO_Pumping
+  - Wind
+  - PV
+  - CSP
+  - Other_RE
 
-**Production Type Mapping:**
-- Thermal_Gen_Excl_Pumping_and_SCO → fossil_coal
-- Nuclear_Generation → nuclear
-- Eskom_Gas_Generation → fossil_gas
-- Eskom_OCGT_Generation + Dispatchable_IPP_OCGT → fossil_oil
-- Hydro_Water_Generation → hydro
-- Pumped_Water_Generation + Pumped_Water_SCO_Pumping → hydro_pumped_storage
-- Wind → wind
-- PV → solar
-- CSP → solar_thermal
-- Other_RE → other_renewable
+```
+Date Time Hour Beginning,Thermal Generation,Nuclear Generation,Eskom Gas Generation,Eskom OCGT Generation,Hydro Water Generation,Pumped Water Generation,Dispatchable IPP OCGT,Wind,PV,CSP,Other RE
+2021-04-01 12:00:00 AM,21352.0,920.0,0.0,1.0,0.0,0.0,0.0,705.691,0.0,0.0,17.147
+```
 
 ### Historical Data Request
 **Quick Facts:**

@@ -37,15 +37,15 @@
 }
 ```
 
-## Production Type Mapping
+## Field Reference
 
-| French | English | Production Type |
-|--------|---------|----------------|
-| hydraulique | hydraulic | hydro |
-| thermique | thermal | thermal |
-| solaire | solar | solar |
-| eolien | wind | wind |
-| autres | others | biomass |
+| French | English |
+|--------|---------|
+| hydraulique | hydraulic |
+| thermique | thermal |
+| solaire | solar |
+| eolien | wind |
+| autres | others |
 
 ## Notes
 

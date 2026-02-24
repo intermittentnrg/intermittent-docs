@@ -16,19 +16,12 @@
 - **URL:** `http://mis.nyiso.com/public/csv/rtfuelmix/{YYYYMMDD}rtfuelmix_csv.zip`
 - **Notes:** 
   - ZIP file containing CSV
-  - Columns: Time Stamp, Time Zone, Fuel Category, Gen MW
-
-## Production Type Mapping
-
-| NYISO Code | Production Type |
-|-----------|----------------|
-| Dual Fuel | fossil_gas |
-| Natural Gas | fossil_gas |
-| Nuclear | nuclear |
-| Other Fossil Fuels | other |
-| Other Renewables | other_renewable |
-| Wind | wind_onshore |
-| Hydro | hydro_run-of-river_and_poundage |
+  - Time format: `%m/%d/%Y %H:%M:%S`
+- **Columns:**
+  - Time Stamp
+  - Time Zone
+  - Fuel Category
+  - Gen MW
 
 ## Notes
 - Time format: `%m/%d/%Y %H:%M:%S` (Time Stamp column)

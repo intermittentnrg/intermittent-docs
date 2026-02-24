@@ -31,20 +31,6 @@
   - Won → jeon/cents (×100)
   - Hour 24 rolls over to next day (Korean convention)
 
-## Production Type Mapping
-
-| KPX Code | Production Type |
-|----------|----------------|
-| coal / localCoal | fossil_coal |
-| gas | fossil_gas |
-| oil | fossil_oil |
-| nuclearPower | nuclear |
-| waterPower | hydro |
-| windPower | wind |
-| sunlight | solar |
-| newRenewable | other_renewable |
-| raisingWater | hydro_pumped_storage |
-
 ## Notes
 - Time format: Generation `%Y-%m-%d %H:%M`; Price dates `%m.%d` with Korean weekday
 - CSRF token required for historical data

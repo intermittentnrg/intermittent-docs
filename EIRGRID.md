@@ -48,14 +48,14 @@
 - `EndTime`: `<=%Y-%m-%dT%H:%M`
 - `page_size`: 500
 
-## Production Type Mapping
+## CSV Columns
 
-| Source Field | Production Type | Notes |
-|--------------|----------------|-------|
-| WIND(MW) | wind_onshore | From CSV data |
-| GENERATION(MW) | total_generation | From CSV data |
-| ACTUAL DEMAND(MW) | demand | From CSV data |
-| Net Total (MW) | interconnection | Positive = imports, negative = exports |
+| Column | Description |
+|--------|-------------|
+| WIND(MW) | Wind generation |
+| GENERATION(MW) | Total generation |
+| ACTUAL DEMAND(MW) | Actual demand |
+| Net Total (MW) | Net interconnector flow (positive = imports, negative = exports) |
 
 ## Notes
 

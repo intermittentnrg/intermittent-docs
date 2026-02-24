@@ -70,7 +70,6 @@
 ## Authentication
 
 API requires security token:
-- Environment variable: `ENTSOE_TOKEN`
 - Token is passed as `securityToken` parameter
 - Obtain token from ENTSO-E Transparency Platform registration
 

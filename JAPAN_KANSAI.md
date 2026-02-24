@@ -13,12 +13,6 @@ Kansai doesn't provide public demand CSV files like other regions. See [JAPAN.md
 - Percentage extracted from gif images via OCR
 - Real-time only (no historical CSV)
 
-## Production Type Mapping
-
-| Source | Production Type |
-|--------|----------------|
-| Multiple units | nuclear |
-
 ## Links
 - [intermittent.energy](https://github.com/intermittentnrg/intermittent-importer/blob/master/lib/japan_nuclear/kepco.rb)
 - [electricityMaps](https://github.com/electricitymaps/electricitymaps-contrib/blob/master/electricitymap/contrib/parsers/JP_KN.py)

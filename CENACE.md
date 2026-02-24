@@ -22,28 +22,45 @@
   - Form requirements: VIEWSTATE, VIEWSTATEGENERATOR, EVENTVALIDATION tokens, Date picker with client state, CSV download button click (image button submission)
   - ASP.NET AJAX partial postbacks for historical dates
   - Month/year extracted from table header text
+  - 8 header rows
+  - Date: `%d/%m/%Y`
+  - Hour: 1-24 (1-indexed, converted to 0-23)
+  - Header rows have CR (`\r`) inside quoted strings, LF (`\n`) line endings
+  - **Settlement Versions:** The page displays multiple settlement versions/rows in an HTML table (column "No. de Liquidación Asociada"). The CSV header shows settlement types:
+    - **L0**: Original (Original)
+    - **L1**: Re-Liquidacion Inicial (Initial Re-Settlement)
+    - **L2**: Re-Liquidacion Intermedia (Intermediate Re-Settlement)
+    - **L3**: Re-Liquidacion Final (Final Re-Settlement)
+    - **L4**: Re-Liquidacion por Controversia 4 (Re-Settlement by Controversy 4)
+    - **L5**: Re-Liquidacion por Controversia 5 (Re-Settlement by Controversy 5)
+    - The importer downloads the latest settlement via `buttons.last` CSS selector
+- **Columns:**
+  - Sistema
+  - Dia
+  - Hora
+  - Eolica
+  - Fotovoltaica
+  - Biomasa
+  - Carboelectrica
+  - Ciclo Combinado
+  - Combustion Interna
+  - Geotermoelectrica
+  - Hidroelectrica
+  - Nucleoelectrica
+  - Termica Convencional
+  - Turbo Gas
 
-**CSV Format:**
-- 8 header rows
-- Date: `%d/%m/%Y`
-- Hour: 1-24 (1-indexed, converted to 0-23)
-- Production types (columns 3-13)
-
-## Production Type Mapping
-
-| Column | Production Type |
-|--------|----------------|
-| 3 | wind |
-| 4 | solar |
-| 5 | biomass |
-| 6 | fossil_coal |
-| 7 | fossil_gas_ccgt |
-| 8 | fossil_oil_diesel |
-| 9 | geothermal |
-| 10 | hydro |
-| 11 | nuclear |
-| 12 | thermal |
-| 13 | fossil_gas |
+```
+"Centro Nacional de Control de Energia\r"
+"Estadistica de la Energia Generada Liquidada Agregada (MWh) Intermitente y Firme por Tipo de Tecnologia\r"
+"Sistema Electrico Nacional\r"
+"Dias de Operacion del Mes de: noviembre 2025\r"
+"Proceso de Liquidacion: Re-Liquidacion Inicial (L1) \r"
+"Archivo descargado desde el Sistema de Informacion del Mercado (Area Publica) creado el 25/ene/2026 05:05:01 hrs.\r"
+"Nota: Los acentos de este reporte se omiten intencionalmente por sistema."
+"Sistema"," Dia"," Hora"," Eolica"," Fotovoltaica","  Biomasa"," Carboelectrica"," Ciclo Combinado"," Combustion Interna"," Geotermoelectrica"," Hidroelectrica"," Nucleoelectrica"," Termica Convencional"," Turbo Gas"
+"SEN","01/11/2025","1","3044.9291","0.0424","2.4439","740.3315","24417.7417","331.4234","378.6465","3643.7015","754.9493","1695.7735","1140.0202"
+```
 
 ## Notes
 

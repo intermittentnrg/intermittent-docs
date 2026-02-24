@@ -71,38 +71,34 @@ The lookup endpoint returns an array of document metadata:
 - H01-H24 hourly values
 - Multiple region rows
 
+```
+TIPO,RGE,VARIABLE,H01,H02,H03,H04,H05,H06,H07,H08,H09,H10,H11,H12,H13,H14,H15,H16,H17,H18,H19,H20,H21,H22,H23,H24
+D,BAS,Demanda Neta,1911,1829,1799,1762,1788,1732,1818,1948,2071,2135,2205,2173,2167,2182,2125,2072,2087,2097,2135,2315,2355,2295,2180,2061
+```
+
+### BALANCE.csv Codes
+
+- Nuclear: Nuclear generation
+- Termica: Thermal generation
+- Ren Hidro >50MW: Hydro >50MW
+- Ren ley 26190: Hydro renewable
+- Importacion: Imports
+- Exportacion: Exports
+- Demanda Neta: Net demand
+
 #### VALORES_GENERADORES.csv Format
 - Unit-level generation data
 - Columns: Region, Agent, Unit, Type, H01-H24 hourly values
 - Headers removed, quotes may be present in fields
 
-## Production Type Mapping
+### Unit-Level Type Codes
 
-| CAMMESA Code | Production Type | Notes |
-|--------------|----------------|-------|
-| Nuclear | nuclear | BALANCE.csv |
-| Termica | thermal | BALANCE.csv |
-| Ren Hidro >50MW | hydro | BALANCE.csv |
-| Ren ley 26190 | hydro | BALANCE.csv |
-| Importacion | import (transmission) | BALANCE.csv |
-| Exportacion | export (transmission) | BALANCE.csv |
-| Demanda Neta | load | BALANCE.csv |
-| biocombustible | biomass | Renovables endpoint |
-| hidraulica | hydro_small | Renovables endpoint |
-| fotovoltaica | solar | Renovables endpoint |
-| eolica | wind | Renovables endpoint |
-| Perdidas | - | Ignored |
-
-### Unit-Level Type Codes (VALORES_GENERADORES.csv)
-
-| Code | Production Type |
-|------|----------------|
-| EO | wind |
-| BG | biomass |
-| TV, HR, HI | hydro |
-| NU | nuclear |
-| DI, TG, CC | thermal |
-| FV | solar |
+- EO: Wind
+- BG: Biomass
+- TV, HR, HI: Hydro
+- NU: Nuclear
+- DI, TG, CC: Thermal
+- FV: Solar
 
 ## Rate Limiting
 

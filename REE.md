@@ -21,23 +21,6 @@
 
 Hourly generation data for the Canary Islands.
 
-## Production Type Mapping
-
-| REE Code | Production Type | Notes |
-|----------|----------------|-------|
-| die | fossil_oil | Diesel |
-| gas | fossil_gas | Natural gas |
-| eol | wind_onshore | Wind |
-| fot | solar | Photovoltaic |
-| hid | hydro_pumped_storage | Pumped hydro |
-| cc | - | Ignored (combined cycle) |
-| vap | - | Ignored (vapor/steam) |
-| gnhd | - | Ignored (hydro generation) |
-| turb | - | Ignored (pumping turbine) |
-| conb | - | Ignored (pumping consumption) |
-| efl | - | Ignored (exchange) |
-| dem | - | Ignored (demand) |
-
 ## Notes
 - API returns JSON wrapped in a callback function (stripped before parsing)
 - Only 5 production types are currently mapped and stored

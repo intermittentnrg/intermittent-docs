@@ -23,14 +23,6 @@
 - **URL:** `https://www.nspower.ca/library/CurrentLoad/CurrentMix.json`
 - **Units:** Percentages of total load
 
-## Production Type Mapping
-
-| NSPower Name | Production Type | Notes |
-|-------------|----------------|-------|
-| Solid Fuel + CT's + LM 6000's | fossil_hard_coal | Combined and scaled by load |
-| HFO/Natural Gas | fossil_gas | Scaled by load |
-| Imports | - | Excluded from generation calc |
-
 ## Notes
 - Time format: `datetime` field in format `/Date(1234567890000-0500)/` (milliseconds since epoch + timezone offset)
 - Absolute generation values calculated as: `load * percentage / 100.0`

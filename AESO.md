@@ -22,6 +22,28 @@
   - Format: Header, Last Update timestamp, Summary (Alberta Internal Load), Generation by fuel type, Transmission (interties), Unit-level data by fuel type
   - Dual fuel units mapped to both types
   - Unit names parsed from ASSET column (format: "Name (ID)" → extract ID)
+- **Columns:**
+  - Generation: Fuel Type, Available Capacity, Net Generation, Contingency Reserve
+  - Transmission: Area, Flow (MW)
+
+```
+Current Supply Demand Report
+
+Last Update : Feb 02, 2026 23:32
+
+Alberta Total Net Generation,11468
+Net Actual Interchange,1085
+Alberta Internal Load (AIL),10383
+
+COGENERATION,6137,4837,52
+WIND,5684,3035,0
+COMBINED CYCLE,3974,2477,10
+
+British Columbia,939
+Montana,-5
+Saskatchewan,151
+TOTAL,1085
+```
 
 ### Historical Unit Data (GenerationHistory)
 **Quick Facts:**
@@ -36,17 +58,20 @@
 - **Documentation:** https://www.aeso.ca/market/experience-open-data/
 - **Time format:** `%Y-%m-%d %H:%M` (UTC)
 - **Parameters:** `startDate`/`endDate`: YYYY-MM-DD
-- **Headers:** Api-Key (from `AESO_PRIMARY_KEY` env var)
+- **Headers:** Api-Key
 - **Notes:** Pool Price Report with begin_datetime_utc
 
-## Production Type Mapping
+## Fuel Types
 
-| AESO Code | Production Type |
-|-----------|----------------|
-| ENERGY STORAGE | battery |
-| GAS / COGENERATION / COMBINED CYCLE / GAS FIRED STEAM / SIMPLE CYCLE | fossil_gas |
-| COAL | fossil_hard_coal |
-| Other types | lowercase with underscores |
+| Code | Description |
+|------|-------------|
+| ENERGY STORAGE | Energy storage |
+| GAS | Gas |
+| COGENERATION | Cogeneration |
+| COMBINED CYCLE | Combined cycle |
+| GAS FIRED STEAM | Gas fired steam |
+| SIMPLE CYCLE | Simple cycle |
+| COAL | Coal |
 
 ## Notes
 - Transmission: MW (negative for imports, positive for exports)

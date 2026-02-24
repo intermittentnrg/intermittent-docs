@@ -30,18 +30,15 @@ This document defines the common structure for all data source importer document
 - **Units:** <if different from main>
 - **Resolution:** <if different from main>
 - **Notes:** <endpoint-specific notes>
+- **Columns:**
+  - ColumnName
+  - AnotherColumn
 
 ### <Endpoint Name 2>
 ...
 
 ## Authentication
 <explanation of API keys, tokens, etc.>
-
-## Production Type Mapping
-
-| Source Code | Production Type | Notes |
-|-------------|----------------|-------|
-| [code]      | [type]         | [notes]|
 
 ## Notes
 <implementation details, quirks, special handling, time format, data limitations, etc.>
@@ -52,8 +49,8 @@ This document defines the common structure for all data source importer document
 ### Required Sections
 - **Title**: Must follow format `# <Data Source Name>`
 - **Quick Facts**: Header with key attributes (Region, Website, Timezone, Data Format, Units, Resolution, Availability)
-- **Endpoints**: Section listing all endpoints with mini Quick Facts
-- **Production Type Mapping**: Table mapping source codes to internal types (if applicable)
+- **Endpoints**: Section listing all endpoints with mini Quick Facts and CSV columns
+- **CSV Columns**: Document columns per endpoint in Quick Facts
 - **Notes**: Implementation details, quirks, special handling
 
 ### Optional Sections
@@ -80,6 +77,24 @@ Each endpoint should have a mini Quick Facts box with:
 - **Units:** If different from main Quick Facts
 - **Resolution:** If different from main Quick Facts
 - **Notes:** Endpoint-specific details, parameters, quirks
+- **Columns:** (for CSV endpoints)
+  - ColumnName
+  - AnotherColumn
+
+### CSV Endpoints
+Include a CSV example after the Columns list:
+```csv
+Header1,Header2,Header3
+value1,value2,value3
+```
+
+### JSON Endpoints
+Include a JSON example after the Notes:
+```json
+{
+  "field": "value"
+}
+```
 
 ### Authentication Section
 Document authentication requirements:
@@ -102,7 +117,7 @@ Include:
 ## Formatting Conventions
 
 - Use H3 (`###`) for endpoints
-- Use tables for mappings (Source Code → Production Type)
+- Use bullet lists for CSV columns
 - Include code examples for JSON/XML structures
 - Specify strftime format strings in backticks: `%Y-%m-%d %H:%M`
 - Document timezone conversions (source timezone → UTC)

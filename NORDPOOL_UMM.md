@@ -95,17 +95,15 @@ GET /infrastructure/connections
 | LT | 10YLT-1001A0008Q | Lithuania |
 | PL | 10YPL-AREA-----S | Poland |
 
-## Fuel Type Mapping
+## Fuel Type Codes
 
-| Code | Production Type |
-|------|----------------|
-| 14 | nuclear |
-| 18 | wind_offshore |
-| 19 | wind_onshore |
-| 16 | solar |
-| 12 | hydro |
-| 4 | fossil_gas |
-| 5 | fossil_hard_coal |
+- 14: Nuclear
+- 18: Wind Offshore
+- 19: Wind Onshore
+- 16: Solar
+- 12: Hydro
+- 4: Fossil Gas
+- 5: Fossil Hard Coal
 
 ## Notes
 - UMM provides generation unavailability data (not real-time generation)

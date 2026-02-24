@@ -31,26 +31,24 @@
 - `EBA.SW-ALL.D.H`: Southwest demand
 - `EBA.CISO-AZPS.ID.H`: Flow from CAISO to Arizona Public Service
 
-## Production Type Mapping
+### Fuel Type Codes
 
-| EIA Code | Production Type |
-|----------|----------------|
-| BAT | battery |
-| COL | fossil_hard_coal |
-| GEO | geothermal |
-| NG | fossil_gas |
-| NUC | nuclear |
-| OIL | fossil_oil |
-| OES | storage |
-| OTH | other |
-| PS | hydro_pumped_storage |
-| SNB | solar_with_battery |
-| SUN | solar |
-| UES | unknown_storage |
-| WAT | hydro |
-| WND | wind |
-| WNB | wind_with_battery |
-| UNK | unknown |
+- BAT: Battery
+- COL: Coal
+- GEO: Geothermal
+- NG: Natural gas
+- NUC: Nuclear
+- OIL: Oil
+- OES: Energy storage
+- OTH: Other
+- PS: Pumped storage
+- SNB: Solar with battery
+- SUN: Solar
+- UES: Unknown storage
+- WAT: Water (hydro)
+- WND: Wind
+- WNB: Wind with battery
+- UNK: Unknown
 
 ## Data Types
 
