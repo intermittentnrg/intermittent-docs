@@ -20,8 +20,9 @@
 
 ## Terms and Conditions
 
-- The User may not download, reproduce, license, cease or use it for commercial purposes without explicit prior approval
-- Information is for personal use of individual visitors only
+- [Terms of Service](https://www.epexspot.com/en/UseofWebsite)
+- The User may not download, reproduce, license, cease or use it for commercial purposes (inter alia for indexation purposes) without the explicit prior approval of EPEX SPOT SE
+- The information found on the Website is for the personal use of individual visitors only
 
 ## Notes
 - Day-ahead and intraday markets across Europe

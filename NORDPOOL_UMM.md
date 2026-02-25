@@ -1,23 +1,30 @@
-# Nord Pool UMM (Urgent Market Messages) Data Source
+# Nord Pool UMM (Urgent Market Messages)
 
 **Quick Facts:**
 - **Region:** Europe - Multiple bidding zones (Nordic, Baltic, UK, Germany, France, etc.)
 - **Website:** https://www.nordpoolgroup.com/
-- **API:** `https://ummapi.nordpoolgroup.com/messages`
+- **Data Portal:** https://umm.nordpoolgroup.com/
+- **API Documentation:** https://developers.nordpoolgroup.com/reference/umm-introduction
 - **Timezone:** Multiple (depends on bidding zone)
 - **Data Format:** JSON
 - **Units:** MW (capacity)
 - **Resolution:** Event-based (outage periods)
-- **Availability:** Real-time UMM messages
-- **Authentication:** None required (public API)
+- **Availability:** Full history + future (past events and scheduled maintenance)
 
-## API Endpoint
+## Authentication
 
-```
-GET https://ummapi.nordpoolgroup.com/messages
-```
+No authentication required for public endpoints.
 
-### Query Parameters
+## Endpoints
+
+### Messages
+**Quick Facts:**
+- **API Endpoint:** `https://ummapi.nordpoolgroup.com/messages`
+- **Documentation:** [HTML](https://developers.nordpoolgroup.com/reference/umm-api-messages-search) / [Markdown](https://developers.nordpoolgroup.com/reference/umm-api-messages-search.md)
+- **Data Portal:** https://umm.nordpoolgroup.com/
+- **Notes:** Returns generation unavailability messages. Use `skip` and `limit` for paging (max 2000 per call).
+
+**Query Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
@@ -26,13 +33,13 @@ GET https://ummapi.nordpoolgroup.com/messages
 | `unavailabilityType` | string | `Planned`, `Unplanned` |
 | `publicationStartDate` | date | ISO 8601 UTC format |
 | `publicationStopDate` | date | ISO 8601 UTC format |
-| `eventStartDate` | date | ISO 8601 UTC format - filters by outage event start |
-| `eventStopDate` | date | ISO 8601 UTC format - filters by outage event stop |
-| `areas` | array | Area codes (e.g., `SE1`, `FI`, `DK1`) |
-| `fuelTypes` | array | Fuel type codes |
-| `marketParticipants` | array | From Market Participants lookup |
-| `units` | array | Station codes |
-| `connections` | array | From Connections lookup |
+| `eventStartDate` | date | ISO 8601 UTC - filters by outage event start |
+| `eventStopDate` | date | ISO 8601 UTC - filters by outage event stop |
+| `areas` | array | EIC codes from Areas lookup |
+| `fuelTypes` | array | Codes from Fuel Types lookup |
+| `marketParticipants` | array | Codes from Market Participants lookup |
+| `units` | array | EIC codes from Stations lookup |
+| `connections` | array | Codes from Connections lookup |
 | `companies` | array | Valid Company IDs |
 | `searchText` | string | Search in UnavailabilityReason and Remarks |
 | `skip` | int | Number of results to skip (paging) |
@@ -41,31 +48,57 @@ GET https://ummapi.nordpoolgroup.com/messages
 | `orderDirection` | string | `ASC` or `DESC` |
 | `includeOutdated` | boolean | Include outdated message versions |
 
-### Example
-
-```bash
-curl 'https://ummapi.nordpoolgroup.com/messages?status=Active&limit=10'
-curl 'https://ummapi.nordpoolgroup.com/messages?status=Active&fuelTypes=14&areas=SE'
-```
-
-### Response
+**Response:**
 
 ```json
 {
   "items": [...],
-  "total": 92041
+  "total": 19657
 }
 ```
 
-## Infrastructure Endpoints
+- `items` - array of messages
+- `total` - number of messages satisfying filter
 
+**Example:**
+
+```bash
+curl 'https://ummapi.nordpoolgroup.com/messages?status=Active&limit=10'
+curl 'https://ummapi.nordpoolgroup.com/messages?status=Active&fuelTypes=14&areas=10Y1001A1001A46L'
 ```
-GET /infrastructure/areas
-GET /infrastructure/assets
-GET /infrastructure/fueltypes
-GET /infrastructure/stations
-GET /infrastructure/connections
+
+### Areas
+**Quick Facts:**
+- **API Endpoint:** `https://ummapi.nordpoolgroup.com/infrastructure/areas`
+- **Documentation:** [HTML](https://developers.nordpoolgroup.com/reference/umm-api-infrastructure-areas) / [Markdown](https://developers.nordpoolgroup.com/reference/umm-api-infrastructure-areas.md)
+- **Notes:** Returns bidding zone EIC codes.
+
+### Stations
+**Quick Facts:**
+- **API Endpoint:** `https://ummapi.nordpoolgroup.com/infrastructure/stations`
+- **Documentation:** [HTML](https://developers.nordpoolgroup.com/reference/umm-api-infrastructure-stations) / [Markdown](https://developers.nordpoolgroup.com/reference/umm-api-infrastructure-stations.md)
+- **Notes:** Returns station names and EIC codes for unit filtering. Use `code` for the `units` parameter in messages endpoint.
+
+**Response:**
+
+```json
+[
+  { "name": "Forsmark Block1", "code": "46WPU0000000015W" },
+  { "name": "G3", "code": "46WGU0000000009X" }
+]
 ```
+
+### Fuel Types
+**Quick Facts:**
+- **API Endpoint:** `https://ummapi.nordpoolgroup.com/infrastructure/fueltypes`
+- **Documentation:** [HTML](https://developers.nordpoolgroup.com/reference/umm-api-infrastructure-fuel-types) / [Markdown](https://developers.nordpoolgroup.com/reference/umm-api-infrastructure-fuel-types.md)
+- **Notes:** Returns fuel type codes.
+
+### Connections
+**Quick Facts:**
+- **API Endpoint:** `https://ummapi.nordpoolgroup.com/infrastructure/connections`
+- **Documentation:** [HTML](https://developers.nordpoolgroup.com/reference/umm-api-infrastructure-connections) / [Markdown](https://developers.nordpoolgroup.com/reference/umm-api-infrastructure-connections.md)
+- **Notes:** Returns connection codes.
 
 ## Supported Areas
 
@@ -106,10 +139,11 @@ GET /infrastructure/connections
 - 5: Fossil Hard Coal
 
 ## Notes
+
 - UMM provides generation unavailability data (not real-time generation)
 - Used for tracking planned and unplanned outages
-- No authentication required for public endpoints
 - See [NORDPOOL.md](NORDPOOL.md) for time series (prices, generation)
 
 ## Links
+
 - [intermittent.energy](https://github.com/intermittentnrg/intermittent-importer/blob/master/lib/nordpool_umm.rb)
