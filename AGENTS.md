@@ -172,12 +172,14 @@ Include:
 2. **Check for Updates**: Source code structure may change - verify links are current
 3. **No Duplicates**: Consolidate similar data sources (e.g., Japan regions share Juyo format)
 4. **Links at Bottom**: Always place Links section at the bottom of the file
-5. **No Implementation Details**: Do not include environment variables, source code references, parser logic, or implementation-specific details in the documentation body - focus on the data source API/format only
+5. **Link Ordering**: Order links consistently as: intermittent.energy → electricityMaps → gridstatus.io
+6. **No Implementation Details**: Do not include environment variables, source code references, parser logic, or implementation-specific details in the documentation body - focus on the data source API/format only
 
 ### Before Submitting Changes
 - [ ] All external links are valid
 - [ ] Follows template structure
 - [ ] No implementation details (ENV vars, source code, parser logic) in documentation body
 - [ ] Links section includes all relevant source code repositories
+- [ ] Links ordered correctly (intermittent.energy → electricityMaps → gridstatus.io)
 - [ ] No duplicate content exists
 - [ ] Markdown formatting is correct
