@@ -52,10 +52,41 @@
 ## OASIS API Endpoints
 
 **Base URL:** `http://oasis.caiso.com/oasisapi/`
-**API Documentation:** https://www.caiso.com/oasis/oasisapi/
+**API Documentation:** https://www.caiso.com/documents/oasis-interfacespecification_v4_3_5redline_spring2017release.pdf
 **Data Format:** XML inside ZIP file
 **Units:** $/MWh
 **Timezone:** US/Pacific
+
+### Query Parameters
+
+| Parameter | Required | Values | Description |
+|-----------|----------|--------|-------------|
+| `queryname` | Yes | `PRC_LMP`, `PRC_INTVL_LMP`, `PRC_RTPD_LMP` | Report type (Day-Ahead, Real-Time 5min, Real-Time 15min) |
+| `version` | Yes | `12` (DAM), `3` (RTM/RTPD) | API version number |
+| `resultformat` | Yes | `6` | Output format (XML inside ZIP) |
+| `market_run_id` | Yes | `DAM`, `RTM`, `RTPD` | Market type (Day-Ahead, Real-Time, Real-Time Pre-Dispatch) |
+| `node` | Yes* | e.g., `TH_SP15_GEN-APND` | Trading hub or pricing node. Required unless `grp_type` is used. |
+| `grp_type` | Yes* | `ALL`, `ALL_APNODES` | Group type for bulk queries. Use instead of `node`. |
+| `startdatetime` | Yes | ISO datetime | Start of query range (e.g., `2024-01-01T00:00:00`) |
+| `enddatetime` | Yes | ISO datetime | End of query range |
+
+*Either `node` or `grp_type` is required, not both.
+
+### Market Types
+
+| market_run_id | Description | queryname | version |
+|--------------|-------------|-----------|---------|
+| `DAM` | Day-Ahead Market (hourly) | `PRC_LMP` | 12 |
+| `RTPD` | Real-Time Pre-Dispatch (15 min) | `PRC_RTPD_LMP` | 3 |
+| `RTM` | Real-Time Market (5 min) | `PRC_INTVL_LMP` | 3 |
+
+### Trading Hub Locations
+
+| Location ID | Description |
+|-------------|-------------|
+| `TH_NP15_GEN-APND` | NP15 trading hub (Northern California) |
+| `TH_SP15_GEN-APND` | SP15 trading hub (Southern California) |
+| `TH_ZP26_GEN-APND` | ZP26 trading hub (Zonal) |
 
 ### LMP - SP15 Hub (Day Ahead Hourly)
 **URL:** `http://oasis.caiso.com/oasisapi/SingleZip?queryname=PRC_LMP&version=12&resultformat=6&market_run_id=DAM&node=TH_SP15_GEN-APND`
@@ -78,6 +109,12 @@
 - Implements rate limiting; recommended sleep between requests (5 seconds)
 - SP15 hub represents Southern California prices (one of three primary trading hubs)
 - Available trading hubs: NP15 (Northern), SP15 (Southern), ZP26 (Zonal)
+
+### HTTP 429 (Rate Limiting)
+**Quick Facts:**
+- **Status Code:** 429 Too Many Requests
+- **Retry Strategy:** Exponential backoff
+- No `Retry-After` header
 
 ## Daily Renewable Report (Curtailment Data)
 
@@ -143,14 +180,6 @@
 - Curtailment types include Economic (Local/System), Self Scheduled, and Operator Instruction
 - Negative curtailment values may indicate over-generation conditions
 - URL date format: `%b-%d-%Y` (e.g., `jan-15-2024`)
-
-## Trading Hub Locations
-
-| Location ID | Description |
-|-------------|-------------|
-| TH_NP15_GEN-APND | NP15 trading hub (Northern California) |
-| TH_SP15_GEN-APND | SP15 trading hub (Southern California) |
-| TH_ZP26_GEN-APND | ZP26 trading hub (Zonal) |
 
 ## Links
 - [intermittent.energy](https://github.com/intermittentnrg/intermittent-importer/blob/master/lib/caiso.rb)
