@@ -10,7 +10,7 @@
 - **Resolution:** Hourly
 - **Availability:**
   - Daily historical CSV files
-  - Supports HTTP conditional requests via If-Modified-Since
+  - Supports HTTP conditional requests via If-Modified-Since (server sends Last-Modified header)
 
 ## caiso.com Endpoints
 
@@ -46,7 +46,7 @@
 - Time format: `%H:%M` (e.g., 14:00) combined with date from URL
 - All timestamps are Pacific time, converted to UTC
 - Empty responses (HTML content-type) treated as error
-- Supports HTTP conditional requests via If-Modified-Since
+- Supports HTTP conditional requests via If-Modified-Since (server sends Last-Modified header)
 - Generation data includes imports as transmission flows
 
 ## OASIS API Endpoints
